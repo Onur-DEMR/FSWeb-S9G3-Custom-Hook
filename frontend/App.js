@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   const [coinData, setCoinData] = useState([]);
-  const { geceModu, setGeceModu } = geceModuAc(false);
+  const { geceModu, toggleMode } = geceModuAc();
 
   useEffect(() => {
     axios
@@ -18,7 +18,7 @@ const App = () => {
   }, []);
   return (
     <div className={geceModu ? "dark-mode App" : "App"}>
-      <Navbar geceModu={geceModu} setGeceModu={setGeceModu} />
+      <Navbar geceModu={geceModu} toggleMode={toggleMode} />
       <Charts coinData={coinData} />
     </div>
   );
